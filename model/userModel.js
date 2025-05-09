@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcryptjs";
-
+import generateToken from "../utils/generateToken.js";
 const userSchema = new mongoose.Schema(
   {
     firstName: {
@@ -131,7 +131,7 @@ userSchema.methods.createPasswordResetToken = function () {
 };
 
 userSchema.methods.createVerificationToken = function () {
-  const verificationToken = crypto.randomBytes(32).toString("hex");
+  const verificationToken = generateToken();
 
   this.verificationToken = crypto
     .createHash("sha256")

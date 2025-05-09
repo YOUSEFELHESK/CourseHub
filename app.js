@@ -8,7 +8,7 @@ import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config({ path: "./config.env" });
 
-connectDB();
+// connectDB();
 
 const app = express();
 
@@ -29,10 +29,11 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
+export let server = app.listen(PORT, () => {
   console.log(
     `Server running on port ${PORT} in ${
       process.env.NODE_ENV || "development"
     } mode`
   );
 });
+export default app;

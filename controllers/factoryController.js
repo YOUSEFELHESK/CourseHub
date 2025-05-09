@@ -77,4 +77,3 @@ export class FactoryController {
     });
   });
 }
- git@github.com:YOUSEFELHESK/CourseHub.git
